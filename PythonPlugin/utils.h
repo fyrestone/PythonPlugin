@@ -187,31 +187,32 @@ static void add_enum_to_module(PyObject *module, char ** names){
 
 
 static bool isPythonInPath(){
-	char* pypath = getenv("PYTHONPATH");
-	if (pypath == NULL){
-		Log(TEXT("Python Plugin - Did Not find `PYTHONPATH` environment variable. Will search in `PATH`"));
-	}
-	char* path = getenv("PATH");
-	if (path){
-#if PY_MAJOR_VERSION >= 3
-		char *python = strstr(path, "Python34");
-#else
-		char *python = strstr(path, "Python27");
-#endif		
-		if (python){
-			return true;
-		}
-		else{
-#if PY_MAJOR_VERSION >= 3
-			AppWarning(TEXT("Python Plugin - Could not find 'Python34' in PATH environment variable."));
-#else
-			AppWarning(TEXT("Python Plugin - Could not find 'Python27' in PATH environment variable."));
-#endif
-			
-		}
-	}
-	else{
-		Log(TEXT("Python Plugin - Could not get PATH environment variable."));
-	}
-	return false;
+	return true;
+//	char* pypath = getenv("PYTHONPATH");
+//	if (pypath == NULL){
+//		Log(TEXT("Python Plugin - Did Not find `PYTHONPATH` environment variable. Will search in `PATH`"));
+//	}
+//	char* path = getenv("PATH");
+//	if (path){
+//#if PY_MAJOR_VERSION >= 3
+//		char *python = strstr(path, "Python34");
+//#else
+//		char *python = strstr(path, "Python27");
+//#endif		
+//		if (python){
+//			return true;
+//		}
+//		else{
+//#if PY_MAJOR_VERSION >= 3
+//			AppWarning(TEXT("Python Plugin - Could not find 'Python34' in PATH environment variable."));
+//#else
+//			AppWarning(TEXT("Python Plugin - Could not find 'Python27' in PATH environment variable."));
+//#endif
+//			
+//		}
+//	}
+//	else{
+//		Log(TEXT("Python Plugin - Could not get PATH environment variable."));
+//	}
+//	return false;
 }

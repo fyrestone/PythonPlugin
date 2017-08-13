@@ -338,15 +338,25 @@ PythonPlugin::PythonPlugin()
 
 
 
-	String path = OBSGetPluginDataPath();
-	path.FindReplace(TEXT("\\"), TEXT("/"));
-	path = path + String("/Python");
+	//String path = OBSGetPluginDataPath();
+	//path.FindReplace(TEXT("\\"), TEXT("/"));
+	//path = path + String("/Python");
 
+	String pythonPluginPath(OBSGetAppPath());
+	pythonPluginPath.FindReplace(TEXT("\\"), TEXT("/"));
+	pythonPluginPath = pythonPluginPath + String("/plugins/PythonPlugin");
 
-	String appPath(OBSGetAppPath());
-	appPath.FindReplace(TEXT("\\"), TEXT("/"));
-	appPath = appPath + String("/plugins/PythonPlugin");
+	String pythonLibPath(OBSGetAppPath());
+	pythonLibPath.FindReplace(TEXT("\\"), TEXT("/"));
+	pythonLibPath = pythonLibPath + String("/plugins/PythonPlugin/Lib");
 
+	String pythonZipPath(OBSGetAppPath());
+	pythonZipPath.FindReplace(TEXT("\\"), TEXT("/"));
+	pythonZipPath = pythonZipPath + String("/python27.zip");
+
+	String tclLibPath(OBSGetAppPath());
+	tclLibPath.FindReplace(TEXT("\\"), TEXT("/"));
+	tclLibPath = tclLibPath + String("/plugins/PythonPlugin/Lib/tcl/tcl8.5");
 
 
 	PyImport_ImportModule("OBS");
@@ -354,16 +364,22 @@ PythonPlugin::PythonPlugin()
 	PythonRunString(String("import sys,os"));
 	
 
-	PythonRunString(String("os.makedirs('") + path + String("')"));
-	PythonRunString(String("sys.path.append('") + path + String("')"));
-	PythonRunString(String("sys.path.append('") + appPath + String("')"));
+	//PythonRunString(String("os.makedirs('") + path + String("')"));
+	PythonRunString(String("sys.path = []"));
+	//PythonRunString(String("sys.path.append('") + path + String("')"));
+	PythonRunString(String("sys.path.append('") + pythonZipPath + String("')"));
+	PythonRunString(String("sys.path.append('") + pythonLibPath + String("')"));
+	PythonRunString(String("sys.path.append('") + pythonPluginPath + String("')"));
+
+	PythonRunString(String("os.environ['TCL_LIBRARY'] = '") + tclLibPath + String("'"));
+	
 #if PY_MAJOR_VERSION >= 3
 	PythonRunString(String("os.environ['PYTHONUNBUFFERED'] = '1'"));
-	PythonRunString(String("sys.stdout = open('") + path + String("/stdOut.txt','w',1)"));
-	PythonRunString(String("sys.stderr = open('") + path + String("/stdErr.txt','w',1)"));
+	PythonRunString(String("sys.stdout = open('") + pythonPluginPath + String("/stdOut.txt','w',1)"));
+	PythonRunString(String("sys.stderr = open('") + pythonPluginPath + String("/stdErr.txt','w',1)"));
 #else
-	PythonRunString(String("sys.stdout = open('") + path + String("/stdOut.txt','w',0)"));
-	PythonRunString(String("sys.stderr = open('") + path + String("/stdErr.txt','w',0)"));
+	PythonRunString(String("sys.stdout = open('") + pythonPluginPath + String("/stdOut.txt','w',0)"));
+	PythonRunString(String("sys.stderr = open('") + pythonPluginPath + String("/stdErr.txt','w',0)"));
 #endif
 	PythonRunString(String("print('Python ' + sys.version)"));
 
