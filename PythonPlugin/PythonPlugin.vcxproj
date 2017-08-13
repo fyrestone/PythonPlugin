@@ -206,7 +206,7 @@
       <SubSystem>Windows</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(OutDir)$(ProjectName).dll ..\rundir\plugins</Command>
+      <Command>copy /Y $(TargetPath) $(SolutionDir)\rundir\plugins\$(TargetFileName)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='34Debug|Win32'">
@@ -283,7 +283,7 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(OutDir)$(ProjectName).dll ..\rundir\plugins</Command>
+      <Command>copy /Y $(TargetPath) $(SolutionDir)\rundir\plugins\$(TargetFileName)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='34Release|Win32'">
