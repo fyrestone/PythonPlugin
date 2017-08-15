@@ -20,7 +20,7 @@ import OBS
 import cairo
 import math
 import time
-from datetime import datetime,timezone
+from datetime import datetime
 
 class DateTime(OBS.ImageSource):    
     def __init__(self,config):
@@ -28,8 +28,8 @@ class DateTime(OBS.ImageSource):
         self.config = config
         #config.SetInt("cx",1000)
         #config.SetInt("cy",100)
-        self.width = 1000
-        self.height = 100
+        self.width = 1500
+        self.height = 1500
         self.bpp = 4
         self.pixelbuffer = bytearray(self.width*self.height*self.bpp)
        
@@ -53,10 +53,10 @@ class DateTime(OBS.ImageSource):
         font = cairo.FontOptions()
 
         current_time = datetime.now()
-        stringtime = current_time.strftime('%d %b %H:%M:%S:%f')[:-3] +  " UTC"+ datetime.now(timezone.utc).astimezone().strftime('%z')
+        stringtime = current_time.strftime('%d %b %H:%M:%S:%f')[:-3]
 
         print("size.x " + str(size.x))
-        print("size.x " + str(size.y))
+        print("size.y " + str(size.y))
 
         #fit text to box
         for x in reversed(range(self.height)):
@@ -64,13 +64,14 @@ class DateTime(OBS.ImageSource):
             ctx.set_font_size(x)
             #rendered size
             (tx, ty, width, height, dx, dy) = ctx.text_extents(stringtime)
-            if(height < self.height and width < self.width):
+            if(height < self.height-10 and width < self.width-10):
                 ctx.set_font_size(x)
                 break
 
         (x, y, width, height, dx, dy) = ctx.text_extents(stringtime)
+        #print x, y, width, height, dx, dy
         #position text
-        ctx.move_to(self.width/2 - width/2, self.height/2 + height/2)    
+        ctx.move_to(0, self.height/2 + height/2)    
         #draw
         
         ctx.show_text(stringtime)      
@@ -103,14 +104,14 @@ class DateTime(OBS.ImageSource):
 
 class gui:
     def __init__(self,config):
-        defaultWidth = 1000
-        defaultHeight = 100
+        defaultWidth = 1500
+        defaultHeight = 1500
         parent = config.GetParent()
         
         #you are expected to reset the width and height
         #to the render size for scaling to work after properties
-        parent.SetFloat("cx",defaultWidth)
-        parent.SetFloat("cy",defaultHeight)
+        parent.SetFloat(u"cx",defaultWidth)
+        parent.SetFloat(u"cy",defaultHeight)
 
 
 
