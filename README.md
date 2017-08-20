@@ -65,4 +65,4 @@ Here is the PythonPlugin GUI, which is built by tcl in Python. Click "Browse" bu
 
 ![Plugin colorsquare running](https://raw.githubusercontent.com/fyrestone/PythonPlugin/master/images/PythonPlugin_colorsquare_running.gif)
 
-Click "Preview Stream" button in the OBS GUI. Wow, your demo is running! Press key "W" "R" "G" "B" on the keyboard and enjoy it.
+Click "Preview Stream" button on the OBS GUI. Wow, your demo is running! Press key "W" "R" "G" "B" on the keyboard and enjoy it.
