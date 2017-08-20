@@ -24,9 +24,11 @@ Running Demo
 
 
 Here are the ExampleScripts running gifs:
+
 ![DateTime demo](https://raw.githubusercontent.com/fyrestone/PythonPlugin/master/images/PythonPlugin_datetime_running.gif)
 
 **DateTime Demo**
+
 ![ColorSquare demo](https://raw.githubusercontent.com/fyrestone/PythonPlugin/master/images/PythonPlugin_colorsquare_running.gif)
 
 **ColorSquare Demo**
