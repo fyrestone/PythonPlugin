@@ -23,7 +23,7 @@ Running Demo
 --
 
 
-Here are the ExampleScripts running gifs:
+Here are the running gifs of ExampleScripts:
 
 ![DateTime demo](https://raw.githubusercontent.com/fyrestone/PythonPlugin/master/images/PythonPlugin_datetime_running.gif)
 
@@ -61,7 +61,7 @@ Enter a simple name for this source, then click OK.
 
 ![Plugin colorsquare](https://raw.githubusercontent.com/fyrestone/PythonPlugin/master/images/PythonPlugin_colorsquare.png)
 
-Here is the PythonPlugin gui, which is built by tcl in Python. Click "Browse" button and select "ColorSquare.py", make sure your settings are identical to this instruction. Finally, before click "Create" button, don't forget to click "Save" button.
+Here is the PythonPlugin GUI, which is built by tcl in Python. Click "Browse" button and select "ColorSquare.py", make sure your settings are identical to this instruction. Finally, before click "Create" button, don't forget to click "Save" button.
 
 ![Plugin colorsquare running](https://raw.githubusercontent.com/fyrestone/PythonPlugin/master/images/PythonPlugin_colorsquare_running.gif)
 
