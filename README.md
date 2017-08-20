@@ -25,8 +25,10 @@ Running Demo
 
 Here are the ExampleScripts running gifs:
 ![DateTime demo](https://raw.githubusercontent.com/fyrestone/PythonPlugin/master/images/PythonPlugin_datetime_running.gif)
+
 **DateTime Demo**
 ![ColorSquare demo](https://raw.githubusercontent.com/fyrestone/PythonPlugin/master/images/PythonPlugin_colorsquare_running.gif)
+
 **ColorSquare Demo**
 
 
@@ -42,17 +44,23 @@ Before play ExampleScripts, you should make sure:
 
 
 Then, follow the steps:
+
 ![Plugin loaded](https://raw.githubusercontent.com/fyrestone/PythonPlugin/master/images/PythonPlugin_loaded.png)
+
 Click "Plugins" button, make sure the PythonPlugin is loaded successful.
 
 ![Plugin add](https://raw.githubusercontent.com/fyrestone/PythonPlugin/master/images/PythonPlugin_add.png)
+
 Right click in the blank white area below "Sources:" label, add a Python source.
 
 ![Plugin enter name](https://raw.githubusercontent.com/fyrestone/PythonPlugin/master/images/PythonPlugin_enter_name.png)
+
 Enter a simple name for this source, then click OK.
 
 ![Plugin colorsquare](https://raw.githubusercontent.com/fyrestone/PythonPlugin/master/images/PythonPlugin_colorsquare.png)
+
 Here is the PythonPlugin gui, which is built by tcl in Python. Click "Browse" button and select "ColorSquare.py", make sure your settings are identical to this image. Finally, before click "create" button, don't forget click "Save" button.
 
 ![Plugin colorsquare running](https://raw.githubusercontent.com/fyrestone/PythonPlugin/master/images/PythonPlugin_colorsquare_running.gif)
+
 Click "Preview Stream" button in the OBS gui. Wow, your demo is running! Press key "W" "R" "G" "B" in the keyboard and enjoy it.
